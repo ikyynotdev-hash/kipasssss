@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ikyy Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #0d0d0d;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+nav h1 { font-size: 26px; font-weight: 700; }
+nav ul { display: flex; gap: 25px; }
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  transition: .2s;
+}
+nav ul li a:hover { color: #7b5cff; }
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 50px;
+}
+.hero-text h1 {
+  font-size: 60px;
+  background: linear-gradient(90deg,#7b5cff,#4bb8ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.hero-text p { opacity: .8; font-size: 17px; margin-top: 10px; }
+.btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: #7b5cff;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: .3s;
+}
+.btn:hover { background: #5634ff; }
+
+/* Sections */
+.section { padding: 120px 50px; text-align: center; }
+.sec-title { font-size: 38px; margin-bottom: 15px; }
+.sec-desc {
+  max-width: 700px;
+  margin: auto;
+  opacity: .8;
+  line-height: 1.6;
+}
+
+/* Projects */
+.projects {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card {
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: .3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Contact */
+.contact-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 40px;
+  background: #4bb8ff;
+  border-radius: 50px;
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+  transition: .3s;
+}
+.contact-btn:hover { background: #2c9ee8; }
+
+/* Fade Animations */
+.fade { opacity: 0; transition: 1s; transform: translateY(20px); }
+.fade.show { opacity: 1; transform: translateY(0); }
+
+.fade-up { opacity: 0; transform: translateY(25px); animation: up 1s forwards; }
+.delay1 { animation-delay: .2s; }
+.delay2 { animation-delay: .4s; }
+.delay3 { animation-delay: .6s; }
+
+@keyframes up {
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>Ikyy.</h1>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-text">
+    <h2 class="fade-up">Hello, I'm</h2>
+    <h1 class="fade-up delay1">Ikyy Semok</h1>
+    <p class="fade-up delay2">Fullstack Developer • Bot Maker • API Builder</p>
+    <a href="#projects" class="btn fade-up delay3">View My Work</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <h2 class="sec-title fade">About Me</h2>
+  <p class="sec-desc fade">
+    I am a fullstack developer specializing in Node.js, bot automation,
+    WhatsApp bots, Telegram bots, API creation, and web tools.
+    I enjoy building fast, clean, and scalable applications.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <h2 class="sec-title fade">Projects</h2>
+
+  <div class="projects">
+    <div class="card fade">
+      <h3>Website Downloader</h3>
+      <p>Mendukung TikTok, YouTube, Instagram, Facebook.</p>
+    </div>
+
+    <div class="card fade">
+      <h3>Telegram Bot</h3>
+      <p>Telegraf + API + AI + OCR + Media Tools.</p>
+    </div>
+
+    <div class="card fade">
+      <h3>WhatsApp Bot</h3>
+      <p>whatsapp-web.js dengan fitur lengkap & stabil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <h2 class="sec-title fade">Contact</h2>
+  <p class="sec-desc fade">You can reach me here:</p>
+  <a href="https://t.me/kiakce" class="contact-btn fade" target="_blank">
+    Telegram @kiakce
+  </a>
+</section>
+
+<script>
+// Fade when scroll
+const fades = document.querySelectorAll(".fade");
+
+function showFade() {
+  const trigger = window.innerHeight * 0.85;
+
+  fades.forEach((el) => {
+    const top = el.getBoundingClientRect().top;
+    if (top < trigger) el.classList.add("show");
+  });
+}
+
+window.addEventListener("scroll", showFade);
+showFade();
+</script>
+
+</body>
+  </html>
